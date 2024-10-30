@@ -39,7 +39,7 @@ export class ProductosService {
       .skip(pages * limit) // Salta las primeras "pages * limit" entradas
       .take(limit) // Trae las siguientes "limit" entradas
       .getMany();
-    const TotalPages = Math.ceil((await total) / limit);
+    const TotalPages = Math.floor((await total) / limit);
     return { total, TotalPages, resultados };
   }
 
